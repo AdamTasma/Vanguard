@@ -35,5 +35,15 @@ namespace Vanguard
 
             MessageBox.Show(name + address);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NameInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
