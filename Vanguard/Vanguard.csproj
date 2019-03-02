@@ -57,6 +57,12 @@
     <Compile Include="Forms\Vanguard.Designer.cs">
       <DependentUpon>Vanguard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CardModel.cs" />
+    <Compile Include="Models\CreatureFightingEnum.cs" />
+    <Compile Include="Models\CreatureRankEnum.cs" />
+    <Compile Include="Models\CreatureTrait.cs" />
+    <Compile Include="Models\CreatureTraitCategoryEnum.cs" />
+    <Compile Include="Models\WeaponModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
