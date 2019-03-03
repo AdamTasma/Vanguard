@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    public class CreatureRankEnum
+    public class WeaponCategoryEnum
     {
-        public enum CreatureRank
+        public enum WeaponCategory
         {
-            Hero = 1,
-            Followeer = 2
+            Melee = 1,
+            Ranged = 2
         }
     }
 }

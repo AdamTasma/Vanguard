@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    class CreatureTraitCategoryEnum
+    public class CreatureTraitCategoryEnum
     {
-        enum CreatureTraitCategory
+        public enum CreatureTraitCategory
         {
             Melee = 1,
             Ranged = 2,

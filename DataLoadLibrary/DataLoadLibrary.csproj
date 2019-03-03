@@ -58,5 +58,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vanguard\Vanguard.csproj">
+      <Project>{50cb11b4-4629-456f-afd1-dba4709b6fe8}</Project>
+      <Name>Vanguard</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    class CreatureFightingEnum
+    public class CreatureFightingEnum
     {
-        enum CreatureFightingTypeEnum
+        public enum CreatureFightingTypeEnum
         {
             Melee = 1,
             Ranged = 2,

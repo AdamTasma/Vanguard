@@ -11,7 +11,7 @@ namespace DataLoadUnitTest_DebugProject
         {
             var dataLoadLibrary = new DataLoadLibrary.LoadExcelFile();
 
-            var excelFileData = dataLoadLibrary.GetTraits("C:\\Users\\adamt\\source\\repos\\Vanguard\\ExcelFileFolder\\VanguardTraits.xlsx");
+            var excelFileData = dataLoadLibrary.GetTraits("C:\\Users\\adamt\\source\\repos\\Vanguard\\ExcelFileFolder\\VanguardDB.xlsx");
 
             var breakpoint = "here";
         }
