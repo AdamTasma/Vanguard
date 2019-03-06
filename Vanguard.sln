@@ -11,12 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoadUnitTest-DebugProje
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExcelFileFolder", "ExcelFileFolder", "{E75F8AD2-5299-4BC7-A2AA-3DC4B0AEE6A8}"
 	ProjectSection(SolutionItems) = preProject
-		ExcelFileFolder\VanguardTraits.xlsx = ExcelFileFolder\VanguardTraits.xlsx
+		ExcelFileFolder\VanguardDB.xlsx = ExcelFileFolder\VanguardDB.xlsx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanguardTests", "VanguardTests\VanguardTests.csproj", "{D3A3301D-4A3D-4351-B52A-E315D395B14B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporter", "DataImporter\DataImporter.csproj", "{7640F321-F611-47B0-AAAB-8B1D9AD99D11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImporter", "DataImporter\DataImporter.csproj", "{7640F321-F611-47B0-AAAB-8B1D9AD99D11}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporterTests", "DataImporterTests\DataImporterTests.csproj", "{87BE36F1-21D7-4736-87A2-80E35037E8EF}"
 EndProject

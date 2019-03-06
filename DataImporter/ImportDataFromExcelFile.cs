@@ -12,7 +12,7 @@ namespace DataImporter
     {
         public void LoadAllTabs(string filePath)
         {
-            using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
+            using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, false))
             {
                 GetDbVersionNumber(doc, 4);
                 GetWeapons(doc, 5);
@@ -26,16 +26,66 @@ namespace DataImporter
             return 0;
         }
 
-        private List<Row> ReadFromSheet(SpreadsheetDocument doc, int dbTab)
+        public string GetDbVersionNumberDebug(string filePath, int dbTab)
         {
-            WorkbookPart workbookPart = doc.WorkbookPart;
-            var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-            WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(dbTab);
-            SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-            ArrayList data = new ArrayList();
-            List<Row> rows = sheetData.Elements<Row>().ToList();
-            rows.RemoveAt(0); //skips header
-            return rows;
+            using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, false))
+            {
+                var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
+
+                string versionNumber = "";
+                var rows = ReadFromSheet(doc, dbTab);
+                //var versionNumber = rows[1].ElementAt(0).InnerText.ToString();
+
+
+                List<string> cellValues = new List<string>();
+                foreach (Cell c in rows[0].Elements<Cell>())
+                {
+                    if (c.InnerText != "")
+                    {
+                        if (c.DataType == null)
+                        {
+                            cellValues.Add(c.InnerText);
+                        }
+                        else
+                        {
+                            cellValues.Add(stringTablePart.SharedStringTable.ElementAt(int.Parse(c.InnerText)).InnerText);
+                        }
+                    }
+                }
+
+
+                //            foreach (Cell c in r.Elements<Cell>())
+                //            {
+                //                if (c.InnerText != "")
+                //                {
+                //                    if (c.DataType == null)
+                //                    {
+                //                        cellValues.Add(c.InnerText);
+                //                    }
+                //                    else
+                //                    {
+                //                        cellValues.Add(stringTablePart.SharedStringTable.ElementAt(int.Parse(c.InnerText)).InnerText);
+                //                    }
+                //                }
+                //            }
+                //            if (cellValues.Count == 1)
+                //            {
+                //                category = cellValues.ElementAt(0);
+                //            }
+                //            else if (cellValues.Count > 1)
+                //            {
+                //                relevantTrait.Category = category;
+                //                relevantTrait.Cost = cellValues.ElementAt(0);
+                //                relevantTrait.costInD = cellValues.ElementAt(1);
+                //                relevantTrait.description = cellValues.ElementAt(2);
+                //                traitList.Add(relevantTrait);
+                //            }
+
+
+                //versionNumber = rows[0].Elements<Cell>().inner;
+
+                return versionNumber;
+            }
         }
 
         public List<WeaponModel> GetWeapons(SpreadsheetDocument doc, int dbTab)
@@ -72,11 +122,21 @@ namespace DataImporter
             return null;
         }
 
+        private List<Row> ReadFromSheet(SpreadsheetDocument doc, int dbTab)
+        {
+            WorkbookPart workbookPart = doc.WorkbookPart;
+            var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
+            WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(dbTab);
+            SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
+            ArrayList data = new ArrayList();
+            List<Row> rows = sheetData.Elements<Row>().ToList();
+            rows.RemoveAt(0); //skips header
+            return rows;
+        }
 
-
-        //public List<Trait> GetTraits(string filePath)
+        //public List<CreatureTrait> GetTraits(string filePath)
         //{
-        //    List<Trait> traitList = new List<Trait>();
+        //    List<CreatureTrait> traitList = new List<CreatureTrait>();
         //    using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
         //    {
         //        WorkbookPart workbookPart = doc.WorkbookPart;
@@ -96,7 +156,7 @@ namespace DataImporter
 
         //        foreach (Row r in rows)
         //        {
-        //            Trait relevantTrait = new Trait();
+        //            CreatureTrait relevantTrait = new CreatureTrait();
         //            List<string> cellValues = new List<string>();
         //            foreach (Cell c in r.Elements<Cell>())
         //            {
@@ -118,8 +178,8 @@ namespace DataImporter
         //            }
         //            else if (cellValues.Count > 1)
         //            {
-        //                relevantTrait.category = category;
-        //                relevantTrait.traitName = cellValues.ElementAt(0);
+        //                relevantTrait.Category = category;
+        //                relevantTrait.Cost = cellValues.ElementAt(0);
         //                relevantTrait.costInD = cellValues.ElementAt(1);
         //                relevantTrait.description = cellValues.ElementAt(2);
         //                traitList.Add(relevantTrait);
