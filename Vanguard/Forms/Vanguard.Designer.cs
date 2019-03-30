@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnP1Next = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnP3Previous = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnP1Next = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnP2Next = new System.Windows.Forms.Button();
             this.btnP2Previous = new System.Windows.Forms.Button();
@@ -49,8 +49,28 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(274, 187);
+            this.panel1.Size = new System.Drawing.Size(300, 300);
             this.panel1.TabIndex = 0;
+            // 
+            // btnP1Next
+            // 
+            this.btnP1Next.Location = new System.Drawing.Point(165, 129);
+            this.btnP1Next.Name = "btnP1Next";
+            this.btnP1Next.Size = new System.Drawing.Size(75, 23);
+            this.btnP1Next.TabIndex = 2;
+            this.btnP1Next.Text = "Next";
+            this.btnP1Next.UseVisualStyleBackColor = true;
+            this.btnP1Next.Click += new System.EventHandler(this.btnP1Next_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(96, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "page 1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel3
             // 
@@ -58,7 +78,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(367, 164);
+            this.panel3.Size = new System.Drawing.Size(300, 300);
             this.panel3.TabIndex = 2;
             this.panel3.Visible = false;
             // 
@@ -81,25 +101,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "page 3";
             // 
-            // btnP1Next
-            // 
-            this.btnP1Next.Location = new System.Drawing.Point(165, 129);
-            this.btnP1Next.Name = "btnP1Next";
-            this.btnP1Next.Size = new System.Drawing.Size(75, 23);
-            this.btnP1Next.TabIndex = 2;
-            this.btnP1Next.Text = "Next";
-            this.btnP1Next.UseVisualStyleBackColor = true;
-            this.btnP1Next.Click += new System.EventHandler(this.btnP1Next_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(96, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "page 1";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnP2Next);
@@ -107,9 +108,10 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(265, 203);
+            this.panel2.Size = new System.Drawing.Size(300, 300);
             this.panel2.TabIndex = 1;
             this.panel2.Visible = false;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnP2Next
             // 

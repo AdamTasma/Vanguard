@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    class WeaponModel
+    public class WeaponModel
     {
-        string Name { get; set; }
-        int TargetNumberMelee { get; set; }
-        int TargetNumberShort { get; set; }
-        int TargetNumberMedium { get; set; }
-        int TargetNumberLong { get; set; }
-        string WeaponTrait { get; set; }
-        string Description { get; set; }
+        public string Name { get; set; }
+        public WeaponCategoryEnum Category { get; set; }
+        public int WeaponPointCost { get; set; }
+        public int TargetNumberMelee { get; set; }
+        public int TargetNumberShort { get; set; }
+        public int TargetNumberMedium { get; set; }
+        public int TargetNumberLong { get; set; }
+        public string Notes { get; set; }
     }
 }

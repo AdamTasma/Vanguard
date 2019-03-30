@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vanguard
@@ -16,7 +13,7 @@ namespace Vanguard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vanguard.Forms.Vanguard());
+            Application.Run(new Forms.Vanguard());
         }
     }
 }

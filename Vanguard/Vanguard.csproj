@@ -62,6 +62,7 @@
     <Compile Include="Models\CreatureRankEnum.cs" />
     <Compile Include="Models\CreatureTrait.cs" />
     <Compile Include="Models\CreatureTraitCategoryEnum.cs" />
+    <Compile Include="Models\WeaponCategoryEnum.cs" />
     <Compile Include="Models\WeaponModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
