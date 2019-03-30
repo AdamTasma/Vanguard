@@ -6,7 +6,7 @@ using System.Collections;
 using Vanguard.Models;
 using System;
 
-namespace ExcelDataImporter
+namespace DataImporterFromExcel
 {
     public class LoadExcelFile
     {
