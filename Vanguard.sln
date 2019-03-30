@@ -10,10 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExcelFileFolder", "ExcelFil
 		ExcelFileFolder\VanguardDB.xlsx = ExcelFileFolder\VanguardDB.xlsx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelDataImporter", "ExcelImporter\ExcelDataImporter.csproj", "{745AF229-4A48-49E8-88FC-21D571F16676}"
-	ProjectSection(ProjectDependencies) = postProject
-		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8} = {50CB11B4-4629-456F-AFD1-DBA4709B6FE8}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporterFromExcel", "DataImporterFromExcel\DataImporterFromExcel.csproj", "{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +22,10 @@ Global
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{745AF229-4A48-49E8-88FC-21D571F16676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{745AF229-4A48-49E8-88FC-21D571F16676}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{745AF229-4A48-49E8-88FC-21D571F16676}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{745AF229-4A48-49E8-88FC-21D571F16676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
