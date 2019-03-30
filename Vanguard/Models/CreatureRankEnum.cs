@@ -11,7 +11,7 @@ namespace Vanguard.Models
         public enum CreatureRank
         {
             Hero = 1,
-            Followeer = 2
+            Follower = 2
         }
     }
 }

@@ -6,10 +6,11 @@ using System.Collections;
 using Vanguard.Models;
 using System;
 
-namespace DataLoadLibrary
+namespace ExcelDataImporter
 {
     public class LoadExcelFile
     {
+
         public void LoadAllTabs(string filePath)
         {
             using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
@@ -49,20 +50,20 @@ namespace DataLoadLibrary
                 weapon.Name = r.ElementAt(0).ToString();
                 weapon.WeaponPointCost = r.InnerText.ElementAt(2);
                 weapon.TargetNumberMelee = r.InnerText.ElementAt(3);
-             //   if (enum.TryParse(r.ElementAt(1), out string weap)){
-             //       weapon.Category = weap;
-             //   }
-             //   else
-	            //{
-             //       Console.WriteLine("There was an issue loading in weapon categories.");
-	            //}
+                //   if (enum.TryParse(r.ElementAt(1), out string weap)){
+                //       weapon.Category = weap;
+                //   }
+                //   else
+                //{
+                //       Console.WriteLine("There was an issue loading in weapon categories.");
+                //}
 
                 weaponList.Add(weapon);
             }
             return weaponList;
         }
 
-        public Dictionary<int,int> GetPlotArmor(SpreadsheetDocument doc, int dbTab)
+        public Dictionary<int, int> GetPlotArmor(SpreadsheetDocument doc, int dbTab)
         {
             Dictionary<int, int> PlotArmor = new Dictionary<int, int>();
 
@@ -72,6 +73,7 @@ namespace DataLoadLibrary
             return null;
         }
 
+        public string myVar = "hello" + ;
 
 
         public List<Trait> GetTraits(string filePath)
@@ -100,9 +102,9 @@ namespace DataLoadLibrary
                     List<string> cellValues = new List<string>();
                     foreach (Cell c in r.Elements<Cell>())
                     {
-                        if(c.InnerText != "")
+                        if (c.InnerText != "")
                         {
-                            if(c.DataType == null)
+                            if (c.DataType == null)
                             {
                                 cellValues.Add(c.InnerText);
                             }
@@ -116,7 +118,7 @@ namespace DataLoadLibrary
                     {
                         category = cellValues.ElementAt(0);
                     }
-                    else if(cellValues.Count > 1)
+                    else if (cellValues.Count > 1)
                     {
                         relevantTrait.category = category;
                         relevantTrait.traitName = cellValues.ElementAt(0);
