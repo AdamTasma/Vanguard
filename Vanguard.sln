@@ -5,13 +5,14 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vanguard", "Vanguard\Vanguard.csproj", "{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoadLibrary", "DataLoadLibrary\DataLoadLibrary.csproj", "{2A029AC5-FCB6-4F7E-B1EF-1D58B3291DE7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoadUnitTest-DebugProject", "DataLoadUnitTest-DebugProject\DataLoadUnitTest-DebugProject.csproj", "{51DB244F-D7A3-44AE-BB83-A20505FF6B95}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExcelFileFolder", "ExcelFileFolder", "{E75F8AD2-5299-4BC7-A2AA-3DC4B0AEE6A8}"
 	ProjectSection(SolutionItems) = preProject
-		ExcelFileFolder\VanguardTraits.xlsx = ExcelFileFolder\VanguardTraits.xlsx
+		ExcelFileFolder\VanguardDB.xlsx = ExcelFileFolder\VanguardDB.xlsx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelDataImporter", "ExcelImporter\ExcelDataImporter.csproj", "{745AF229-4A48-49E8-88FC-21D571F16676}"
+	ProjectSection(ProjectDependencies) = postProject
+		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8} = {50CB11B4-4629-456F-AFD1-DBA4709B6FE8}
 	EndProjectSection
 EndProject
 Global
@@ -24,14 +25,10 @@ Global
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A029AC5-FCB6-4F7E-B1EF-1D58B3291DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A029AC5-FCB6-4F7E-B1EF-1D58B3291DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A029AC5-FCB6-4F7E-B1EF-1D58B3291DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A029AC5-FCB6-4F7E-B1EF-1D58B3291DE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51DB244F-D7A3-44AE-BB83-A20505FF6B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51DB244F-D7A3-44AE-BB83-A20505FF6B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51DB244F-D7A3-44AE-BB83-A20505FF6B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51DB244F-D7A3-44AE-BB83-A20505FF6B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745AF229-4A48-49E8-88FC-21D571F16676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745AF229-4A48-49E8-88FC-21D571F16676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745AF229-4A48-49E8-88FC-21D571F16676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745AF229-4A48-49E8-88FC-21D571F16676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
