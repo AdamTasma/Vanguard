@@ -10,12 +10,15 @@ namespace DataImporterFromExcel
 {
     public class LoadExcelFile
     {
-
-        public void LoadAllTabs(string filePath)
+        public List<TestModel> LoadTestModelFromDB(string filePath)
         {
             List<TestModel> myTestModels = GetTestModels(filePath);
 
+            return myTestModels;
+        }
 
+        public void LoadAllTabs(string filePath)
+        {
             using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
             {
                 //GetDbVersionNumber(doc, 4);
