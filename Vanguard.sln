@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExcelFileFolder", "ExcelFil
 		ExcelFileFolder\VanguardDB.xlsx = ExcelFileFolder\VanguardDB.xlsx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporterFromExcel", "DataImporterFromExcel\DataImporterFromExcel.csproj", "{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanguardTests", "VanguardTests\VanguardTests.csproj", "{A055C053-A449-482A-8664-1B053532D551}"
 EndProject
 Global
@@ -42,22 +40,6 @@ Global
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|x64.Build.0 = Release|Any CPU
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|x86.ActiveCfg = Release|Any CPU
 		{50CB11B4-4629-456F-AFD1-DBA4709B6FE8}.Release|x86.Build.0 = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|ARM.Build.0 = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|x64.Build.0 = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Debug|x86.Build.0 = Debug|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|Any CPU.Build.0 = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|ARM.ActiveCfg = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|ARM.Build.0 = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|x64.ActiveCfg = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|x64.Build.0 = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|x86.ActiveCfg = Release|Any CPU
-		{593817FB-F4DB-4C3D-BE8C-ADA8EC71F113}.Release|x86.Build.0 = Release|Any CPU
 		{A055C053-A449-482A-8664-1B053532D551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A055C053-A449-482A-8664-1B053532D551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A055C053-A449-482A-8664-1B053532D551}.Debug|ARM.ActiveCfg = Debug|Any CPU
