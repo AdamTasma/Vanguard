@@ -1,26 +1,23 @@
-﻿using Vanguard;
-using Vanguard.Models;
+﻿using Vanguard.DataImport;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 
 namespace VanguardTests
 {
     [TestFixture]
     public class DataImportTests
     {
-        public string filePath = "D:\\repos\\Vanguard\\ExcelFileFolder\\VanguardDB.xlsx";
+        //public string filePath = "D:\\repos\\Vanguard\\ExcelFileFolder\\VanguardDB.xlsx";
 
         [Test]
-        public void GetTestModelsImportsCorrectly()
+        public void LoadExcelDbTest()
         {
-            var sut = new LoadExcelFile();
+            Excel excel = new Excel(8);
 
-            var result = sut.LoadTestModelFromDB(filePath);
+            var result = excel.ReadCell(1, 0);
 
-            Assert.IsNotEmpty(result);
+            excel.Close();
+
+            Assert.AreEqual("stringer", result);
         }
-
-
     }
 }
