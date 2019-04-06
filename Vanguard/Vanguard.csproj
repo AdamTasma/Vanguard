@@ -75,11 +75,14 @@
     <Compile Include="Forms\Vanguard.Designer.cs">
       <DependentUpon>Vanguard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArmorModel.cs" />
+    <Compile Include="Models\ArmorDieTypeEnum.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\CreatureFightingEnum.cs" />
     <Compile Include="Models\CreatureRankEnum.cs" />
     <Compile Include="Models\CreatureTrait.cs" />
     <Compile Include="Models\CreatureTraitCategoryEnum.cs" />
+    <Compile Include="Models\DataBase.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\WeaponCategoryEnum.cs" />
     <Compile Include="Models\WeaponModel.cs" />

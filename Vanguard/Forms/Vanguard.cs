@@ -15,6 +15,13 @@ namespace Vanguard.Forms
         public Vanguard()
         {
             InitializeComponent();
+
+            GetDbToMemory();
+        }
+
+        private dbOjbect GetDbToMemory()
+        {
+            return null;
         }
 
         private void Vanguard_Load(object sender, EventArgs e)
