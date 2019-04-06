@@ -9,22 +9,7 @@ namespace VanguardTests
     [TestFixture]
     public class DataImportTests
     {
-        public string filePath = "C:\\Users\adamt\\source\repos\\Vanguard\\ExcelFileFolder\\VanguardDB.xlsx";
-
-        [Test]
-        public void StupidTest()
-        {
-            Assert.True(true);
-        }
-
-        [Test]
-        public void TestTestTest()
-        {
-            var sut = new LoadExcelFile();
-            var result = sut.TestTest();
-
-            Assert.Equals(2, result);
-        }
+        public string filePath = "D:\\repos\\Vanguard\\ExcelFileFolder\\VanguardDB.xlsx";
 
         [Test]
         public void GetTestModelsImportsCorrectly()

@@ -10,11 +10,6 @@ namespace Vanguard
 {
     public class LoadExcelFile
     {
-        public int TestTest()
-        {
-            return 2;
-        }
-
         public List<TestModel> LoadTestModelFromDB(string filePath)
         {
             List<TestModel> myTestModels = GetTestModels(filePath);
