@@ -45,8 +45,6 @@ namespace Vanguard
 
                 rows.RemoveAt(0);
 
-                string category = "";
-
                 foreach (Row r in rows)
                 {
                     TestModel ctm = new TestModel();
@@ -92,7 +90,6 @@ namespace Vanguard
             List<Row> rows = sheetData.Elements<Row>().ToList();
             rows.RemoveAt(0); //skips header
 
-            string category = "";
 
             string version;
             foreach (Row r in rows)

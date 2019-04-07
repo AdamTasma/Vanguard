@@ -9,6 +9,6 @@ namespace Vanguard.Models
     class DataBase
     {
         public List<WeaponModel> WeaponsDB { get; }
-        public List<Armor>
+        public List<ArmorModel> ArmorDB { get; }
     }
 }

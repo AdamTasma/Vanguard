@@ -11,13 +11,35 @@ namespace VanguardTests
         [Test]
         public void LoadExcelDbTest()
         {
-            Excel excel = new Excel(8);
+            Excel sut = new Excel(8);
 
-            var result = excel.ReadCell(1, 0);
+            var result = sut.ReadCell(1, 0);
 
-            excel.Close();
+            sut.Close();
 
             Assert.AreEqual("stringer", result);
+        }
+
+        [Test]
+        public void LoadsAllRowsTest()
+        {
+            Excel sut = new Excel(7);
+
+            var result = sut.GetRows();
+
+            sut.Close();
+
+            Assert.AreEqual("plot", result[2][1]);
+        }
+
+        [Test]
+        public void UnprotectSheet()
+        {
+            Excel sut = new Excel(7);
+
+            sut.UnprotectSheet();
+
+            sut.Close();
         }
     }
 }

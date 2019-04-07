@@ -19,7 +19,7 @@ namespace Vanguard.Forms
             GetDbToMemory();
         }
 
-        private dbOjbect GetDbToMemory()
+        private string GetDbToMemory() //eventually this will load all the db to memory
         {
             return null;
         }
