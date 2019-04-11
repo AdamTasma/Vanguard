@@ -85,10 +85,11 @@ namespace Vanguard.DataImport
             while (i == 0) //iterates through rows
             {
                 row++;
-                column = 0;
-                j = 0;
 
-                if ((column == 0) || ws.Cells[row, column].value2 != null)
+                j = 0;
+                column = 0;
+
+                if ((column == 0) || ws.Cells[row, column].value2 != null) //infinite while loop because column gets reset to 0
                 {
                     var currentRow = new List<string>();
 
@@ -98,7 +99,7 @@ namespace Vanguard.DataImport
 
                         if (ws.Cells[row, column].value2 != null)
                         {
-                            string cellValue = ws.Cells[row, column].Value2;
+                            string cellValue = ws.Cells[row, column].Value2.ToString();
                             currentRow.Add(cellValue);
                         }
                         else
