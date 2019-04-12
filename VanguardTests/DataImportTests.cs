@@ -29,7 +29,10 @@ namespace VanguardTests
 
             sut.Close();
 
-            Assert.AreEqual("plot", result[2][1]);
+            Assert.AreEqual("Armor Type", result[0][0]);
+            Assert.AreEqual("Plot", result[1][0]);
+            Assert.AreEqual(0, int.Parse(result[1][1]));
+            Assert.AreEqual(3, int.Parse(result[9][1]));
         }
 
         [Test]

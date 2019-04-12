@@ -89,7 +89,7 @@ namespace Vanguard.DataImport
                 j = 0;
                 column = 0;
 
-                if ((column == 0) || ws.Cells[row, column].value2 != null) //infinite while loop because column gets reset to 0
+                if (ws.Cells[row, column + 1].value2 != null)
                 {
                     var currentRow = new List<string>();
 
