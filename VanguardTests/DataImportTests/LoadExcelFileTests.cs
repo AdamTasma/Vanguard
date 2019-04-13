@@ -18,8 +18,17 @@ namespace VanguardTests.DataImportTests
 
             var result = sut.LoadDbVersion();
 
-            //sut.Close();
             Assert.AreEqual("1.1.2", result);
+        }
+
+        [Test]
+        public void LoadWeaponsDb_LoadsCorrectly()
+        {
+            var sut = new LoadExcelFile();
+
+            var result = sut.LoadWeaponsDb();
+
+            Assert.AreEqual(4, result.Count);
         }
     }
 }
