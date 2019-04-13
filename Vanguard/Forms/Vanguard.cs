@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vanguard;
+using Vanguard.Models;
 
 namespace Vanguard.Forms
 {
@@ -16,11 +18,13 @@ namespace Vanguard.Forms
         {
             InitializeComponent();
 
-            GetDbToMemory();
+            MapDbToMemory();
         }
 
-        private string GetDbToMemory() //eventually this will load all the db to memory
+        private string MapDbToMemory() //eventually this will load all the db to memory
         {
+            LoadExcelFile loadExcelFile = new LoadExcelFile();
+            DataBase data = loadExcelFile.LoadAllTabs();
             return null;
         }
 

@@ -9,29 +9,45 @@ namespace Vanguard
     {
         public DataBase LoadAllTabs()
         {
-            DataBase dataBase = new DataBase
-            {
-                DbVersion = LoadDbVersion(),
-                WeaponsDB = LoadWeaponsDb()
-            };
+            List<string> errorList = new List<string>();
+            errorList.Add("test");
+
+            //Db Glossary
+            int versionTab = 5;
+            int weaponsTab = 7;
+
+            DataBase dataBase = new DataBase();
+
+            (dataBase.DbVersion, errorList) = LoadDbVersion(errorList, versionTab);
+            dataBase.WeaponsDB = LoadWeaponsDb(errorList, weaponsTab);
 
             return dataBase;
         }
 
-        public string LoadDbVersion()
+        public Tuple<string, List<string>> LoadDbVersion(List<string> errorList, int tab)
         {
-            Excel excel = new Excel(5);
-              
-            var dbVersion = excel.ReadCell(2,1);
+            Excel excel = new Excel(tab);
+            int row = 2;
+            int column = 1;
+            string dbVersion = "";
+            try
+            {
+                dbVersion = excel.ReadCell(row, column);
+            }
+            catch(Exception)
+            {
+                errorList.Add($"There was an issue retrieving the Database Version at tab: {tab}, row: {row}, column: {column}.");
+            }
+
             excel.Close();
 
-            return dbVersion;
+            return new Tuple<string, List<string>>(dbVersion, errorList);
         }
 
-        public List<WeaponModel> LoadWeaponsDb()
+        public List<WeaponModel> LoadWeaponsDb(List<string> errorList, int tab)
         {
             List<WeaponModel> WeaponsList = new List<WeaponModel>();
-            Excel excel = new Excel(7);
+            Excel excel = new Excel(tab);
 
             var weapons = excel.GetRows();
             weapons.RemoveAt(0); //remove the headers
@@ -58,6 +74,7 @@ namespace Vanguard
                 WeaponsList.Add(wm);
             }
 
+            excel.Close();
 
             return WeaponsList;
         }
