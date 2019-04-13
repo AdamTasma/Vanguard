@@ -25,10 +25,7 @@ namespace Vanguard.DataImport
 
         public string ReadCell(int row, int column)
         {
-            row++;
-            column++;
-
-            if(ws.Cells[row, column] != null)
+            if (ws.Cells[row, column] != null)
             {
                 var myValue = ws.Cells[row, column].Value2;
                 return myValue;
@@ -38,39 +35,6 @@ namespace Vanguard.DataImport
                 return "";
             }
         }
-
-        public void UnprotectSheet()
-        {
-            ws.Unprotect();
-        }
-
-        //public List<ArmorModel> getArmorModels(int sheet)
-        //{
-        //    List<ArmorModel> myList = new List<ArmorModel>();
-
-        //    int rowStart = 2;
-        //    int rowEnd = 14;
-        //    int columnStart = 1;
-        //    int columnEnd = 3;
-        //    Range range = (Range)ws.Range[ws.Cells[rowStart, rowEnd], ws.Cells[columnStart, columnEnd]];
-        //    object[,] holder = range.Value2;
-        //    string[,] returnstring = new string[rowEnd - rowStart, columnEnd - columnStart];
-
-        //    for (int i = 1; i <= rowEnd - rowStart; i++)
-        //    {
-        //        returnstring[]
-        //    }
-
-        //    int row = 1;
-        //    int column = 1;
-
-        //    int i = 0;
-        //    while(i == 0)
-        //    {
-
-        //    }
-
-        //}
 
         public List<List<string>> GetRows()
         {
@@ -93,7 +57,7 @@ namespace Vanguard.DataImport
                 {
                     var currentRow = new List<string>();
 
-                    while (j == 0) //iterates through all the columns
+                    while (j == 0) //iterates through all the columns 
                     {
                         column++;
 
@@ -122,6 +86,11 @@ namespace Vanguard.DataImport
         public void Close()
         {
             wb.Close();
+        }
+
+        public void UnprotectSheet()
+        {
+            ws.Unprotect();
         }
     }
 }

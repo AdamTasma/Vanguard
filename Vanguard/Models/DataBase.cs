@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    class DataBase
+    public class DataBase
     {
+        public string DbVersion { get; set; }
         public List<WeaponModel> WeaponsDB { get; }
         public List<ArmorModel> ArmorDB { get; }
     }

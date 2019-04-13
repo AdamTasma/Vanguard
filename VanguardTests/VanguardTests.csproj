@@ -63,7 +63,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataImportTests.cs" />
+    <Compile Include="DataImportTests\ExcelTests.cs" />
+    <Compile Include="DataImportTests\LoadExcelFileTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

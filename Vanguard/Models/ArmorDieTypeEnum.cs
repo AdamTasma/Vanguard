@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    class ArmorDieTypeEnum
+    public class ArmorDieTypeEnum
     {
         public enum ArmorType
         {

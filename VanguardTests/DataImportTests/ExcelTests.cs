@@ -4,16 +4,30 @@ using NUnit.Framework;
 namespace VanguardTests
 {
     [TestFixture]
-    public class DataImportTests
+    public class ExcelTests
     {
-        //public string filePath = "D:\\repos\\Vanguard\\ExcelFileFolder\\VanguardDB.xlsx";
+        [Test]
+        public void StupidTest()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void LoadDbVersion()
+        {
+            Excel sut = new Excel(5);
+            var result = sut.ReadCell(2, 1);
+            sut.Close();
+
+            Assert.AreEqual("1.1.2", result);
+        }
 
         [Test]
         public void LoadExcelDbTest()
         {
-            Excel sut = new Excel(8);
+            Excel sut = new Excel(6);
 
-            var result = sut.ReadCell(1, 0);
+            var result = sut.ReadCell(2, 1);
 
             sut.Close();
 
@@ -23,7 +37,7 @@ namespace VanguardTests
         [Test]
         public void LoadsAllRowsTest()
         {
-            Excel sut = new Excel(7);
+            Excel sut = new Excel(8);
 
             var result = sut.GetRows();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vanguard.Models
 {
-    class ArmorModel
+    public class ArmorModel
     {
         public ArmorDieTypeEnum ArmorDieType { get; set; }
         public int DieAmount { get; set; }
