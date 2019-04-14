@@ -21,7 +21,7 @@ namespace Vanguard.Forms
             MapDbToMemory();
         }
 
-        private DataBase MapDbToMemory() //eventually this will load all the db to memory
+        private DataBase MapDbToMemory()
         {
             LoadExcelFile loadExcelFile = new LoadExcelFile();
             DataBase data;
