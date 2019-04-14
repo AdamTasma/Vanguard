@@ -21,11 +21,28 @@ namespace Vanguard.Forms
             MapDbToMemory();
         }
 
-        private string MapDbToMemory() //eventually this will load all the db to memory
+        private DataBase MapDbToMemory() //eventually this will load all the db to memory
         {
             LoadExcelFile loadExcelFile = new LoadExcelFile();
-            DataBase data = loadExcelFile.LoadAllTabs();
-            return null;
+            DataBase data;
+            List<string> errorList;
+            (data, errorList) = loadExcelFile.LoadAllTabs();
+
+            if (errorList.Count > 0)
+            {
+                string errorMessage = "VanguardDb.xlsx had issues that should be corrected before attempting to use this application. \n";
+                foreach (string error in errorList)
+                {
+                    errorMessage= errorMessage + "\n" + error;
+                }
+
+                MessageBox.Show(errorMessage);
+            }
+            else
+            {
+                MessageBox.Show("Database import successful.");
+            }
+            return data;
         }
 
         private void Vanguard_Load(object sender, EventArgs e)
