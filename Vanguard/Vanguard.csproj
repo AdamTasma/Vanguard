@@ -78,6 +78,12 @@
     <Compile Include="Forms\Vanguard.Designer.cs">
       <DependentUpon>Vanguard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\VanguardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VanguardForm.Designer.cs">
+      <DependentUpon>VanguardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ArmorModel.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\CreatureFightingEnum.cs" />
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vanguard.resx">
       <DependentUpon>Vanguard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VanguardForm.resx">
+      <DependentUpon>VanguardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

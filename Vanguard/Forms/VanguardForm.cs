@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vanguard;
 using Vanguard.Models;
 
 namespace Vanguard.Forms
 {
-    public partial class Vanguard : Form
+    public partial class VanguardForm : Form
     {
-        public Vanguard()
+        public VanguardForm()
         {
             InitializeComponent();
 
@@ -33,7 +32,7 @@ namespace Vanguard.Forms
                 string errorMessage = "VanguardDb.xlsx had issues that should be corrected before attempting to use this application. \n";
                 foreach (string error in errorList)
                 {
-                    errorMessage= errorMessage + "\n" + error;
+                    errorMessage = errorMessage + "\n" + error;
                 }
 
                 MessageBox.Show(errorMessage);
@@ -45,17 +44,12 @@ namespace Vanguard.Forms
             return data;
         }
 
-        private void Vanguard_Load(object sender, EventArgs e)
-        {
-            panel3.Visible = false;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
