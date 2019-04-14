@@ -1,219 +1,139 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DocumentFormat.OpenXml.Spreadsheet;
-using DocumentFormat.OpenXml.Packaging;
-using System.Collections;
-using Vanguard.Models;
+﻿using Vanguard.Models;
+using Vanguard.DataImport;
+using System.Collections.Generic;
 using System;
+using static Vanguard.Models.WeaponCategoryEnum;
+using static Vanguard.Models.ArmorDieTypeEnum;
 
 namespace Vanguard
 {
     public class LoadExcelFile
     {
-        public List<TestModel> LoadTestModelFromDB(string filePath)
-        {
-            List<TestModel> myTestModels = GetTestModels(filePath);
+        //Db Glossary
+        public int versionTab = 5;
+        public int weaponsTab = 7;
+        public int armorTab = 8;
 
-            return myTestModels;
+        /// <summary>
+        /// Loads all the sheets from the excel database workbook "VanguardDb.xlsx" and passes along any database integrity issues."
+        /// </summary>
+        public (DataBase, List<string>) LoadAllTabs()
+        {
+            List<string> errorList = new List<string>();
+
+            DataBase dataBase = new DataBase();
+
+            (dataBase.DbVersion, errorList) = LoadDbVersion(errorList, versionTab);
+            (dataBase.WeaponsDB, errorList) = LoadWeaponsDb(errorList, weaponsTab);
+            (dataBase.ArmorDB, errorList) = LoadArmorDb(errorList, armorTab);
+
+            return (dataBase, errorList);
         }
 
-        public void LoadAllTabs(string filePath)
+        public (string, List<string>) LoadDbVersion(List<string> errorList, int tab)
         {
-            using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
+            Excel excel = new Excel(tab);
+            int row = 2;
+            int column = 1;
+            string dbVersion = "";
+
+            try
             {
-                //GetDbVersionNumber(doc, 4);
-                GetWeapons(doc, 5);
-                GetPlotArmor(doc, 6);
+                dbVersion = excel.ReadCell(row, column);
             }
+            catch(Exception)
+            {
+                errorList.Add($"Database Version issue at tab: {tab}, row: {row}, column: {column}.");
+            }
+
+            excel.Close();
+            return (dbVersion, errorList);
         }
 
-        public List<TestModel> GetTestModels(string filePath)
+        public (List<WeaponModel>, List<string>) LoadWeaponsDb(List<string> errorList, int tab)
         {
-            List<TestModel> myTestModels = new List<TestModel>();
-            using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
+            List<WeaponModel> WeaponsList = new List<WeaponModel>();
+            Excel excel = new Excel(tab);
+
+            var weapons = excel.GetRows();
+            weapons.RemoveAt(0); //removes the headers row
+            int row = 0;
+
+            foreach(var weapon in weapons)
             {
-                WorkbookPart workbookPart = doc.WorkbookPart;
+                row++;
+                int column = 0;
+                WeaponModel wm = new WeaponModel();
 
-                var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-
-                WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(7); // This is the "Traits" tab;
-                SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-
-                ArrayList data = new ArrayList();
-
-                List<Row> rows = sheetData.Elements<Row>().ToList();
-
-                rows.RemoveAt(0);
-
-                foreach (Row r in rows)
+                try
                 {
-                    TestModel ctm = new TestModel();
-                    List<string> cellValues = new List<string>();
-                    foreach (Cell c in r.Elements<Cell>())
+                    column++;
+                    wm.Name = weapon[0];
+                    column++;
+                    wm.Category = (WeaponCategory)Enum.Parse(typeof(WeaponCategory), weapon[1]);
+                    column++;
+                    wm.WeaponPointCost = int.Parse(weapon[2]);
+                    column++;
+                    wm.TargetNumberMelee = int.Parse(weapon[3]);
+                    column++;
+                    wm.TargetNumberShort = int.Parse(weapon[4]);
+                    column++;
+                    wm.TargetNumberMedium = int.Parse(weapon[5]);
+                    column++;
+                    wm.TargetNumberLong = int.Parse(weapon[6]);
+                    column++;
+                    if(weapon.Count == 8)
                     {
-                        if (c.InnerText != "")
-                        {
-                            if (c.DataType == null)
-                            {
-                                cellValues.Add(c.InnerText);
-                            }
-                            else
-                            {
-                                cellValues.Add(stringTablePart.SharedStringTable.ElementAt(int.Parse(c.InnerText)).InnerText);
-                            }
-                        }
-                    }
-                    //if (cellValues.Count == 1)
-                    //{
-                    //    category = cellValues.ElementAt(0);
-                    //}
-                    //else if (cellValues.Count > 1)
-                    if (cellValues.Count > 1)
-                    {
-                        ctm.TestString = cellValues.ElementAt(0);
-                        //ctm.TestInt = cellValues.ElementAt(1);
-                        
-                        myTestModels.Add(ctm);
+                        wm.Notes = weapon[7];
                     }
                 }
-            }
-            return myTestModels;
-        }
-
-        private string GetDbVersionNumber(SpreadsheetDocument doc, int dbTab)
-        {
-            WorkbookPart workbookPart = doc.WorkbookPart;
-            var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-            WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(dbTab);
-            SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-            ArrayList data = new ArrayList();
-            List<Row> rows = sheetData.Elements<Row>().ToList();
-            rows.RemoveAt(0); //skips header
-
-
-            string version;
-            foreach (Row r in rows)
-            {
-                List<string> cellValues = new List<string>();
-                foreach (Cell c in r.Elements<Cell>())
+                catch (Exception ex)
                 {
-                    if (c.InnerText != "")
-                    {
-                        if (c.DataType == null)
-                        {
-                            cellValues.Add(c.InnerText);
-                        }
-                        else
-                        {
-                            cellValues.Add(stringTablePart.SharedStringTable.ElementAt(int.Parse(c.InnerText)).InnerText);
-                        }
-                    }
+                    errorList.Add($"Weapon issue at tab: {tab}, row: {row}, column: {column}.");
                 }
-                version = cellValues.ElementAt(0);
+
+                WeaponsList.Add(wm);
             }
-            return "temp";
+
+            excel.Close();
+            return (WeaponsList, errorList);
         }
 
-
-        private List<Row> ReadFromSheet(SpreadsheetDocument doc, int dbTab)
+        public (List<ArmorModel>, List<string>) LoadArmorDb(List<string> errorList, int tab)
         {
-            WorkbookPart workbookPart = doc.WorkbookPart;
-            var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-            WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(dbTab);
-            SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-            ArrayList data = new ArrayList();
-            List<Row> rows = sheetData.Elements<Row>().ToList();
-            rows.RemoveAt(0); //skips header
-            return rows;
-        }
+            List<ArmorModel> ArmorList = new List<ArmorModel>();
 
-        public List<WeaponModel> GetWeapons(SpreadsheetDocument doc, int dbTab)
-        {
-            List<WeaponModel> weaponList = new List<WeaponModel>();
-            var rows = ReadFromSheet(doc, dbTab);
+            Excel excel = new Excel(tab);
 
-            foreach (Row r in rows)
+            var armors = excel.GetRows();
+            armors.RemoveAt(0); //removes the headers row
+            int row = 0;
+
+            foreach(var armor in armors)
             {
-                WeaponModel weapon = new WeaponModel();
-                weapon.Name = r.ElementAt(0).ToString();
-                weapon.WeaponPointCost = r.InnerText.ElementAt(2);
-                weapon.TargetNumberMelee = r.InnerText.ElementAt(3);
-                //   if (enum.TryParse(r.ElementAt(1), out string weap)){
-                //       weapon.Category = weap;
-                //   }
-                //   else
-                //{
-                //       Console.WriteLine("There was an issue loading in weapon categories.");
-                //}
+                row++;
+                int column = 0;
+                ArmorModel am = new ArmorModel();
 
-                weaponList.Add(weapon);
+                try
+                {
+                    column++;
+                    am.ArmorDieType = (ArmorType)Enum.Parse(typeof(ArmorType), armor[0]); 
+                    column++;
+                    am.DieAmount = int.Parse(armor[1]);
+                    column++;
+                    am.PointCost = int.Parse(armor[2]);
+                }
+                catch(Exception ex)
+                {
+                    errorList.Add($"Armor issue at tab: {tab}, row: {row}, column: {column}.");
+                }
+
+                ArmorList.Add(am);
             }
-            return weaponList;
+
+            excel.Close();
+            return (ArmorList, errorList);
         }
-
-        public Dictionary<int, int> GetPlotArmor(SpreadsheetDocument doc, int dbTab)
-        {
-            Dictionary<int, int> PlotArmor = new Dictionary<int, int>();
-
-            ReadFromSheet(doc, dbTab);
-
-
-            return null;
-        }
-
-        //public List<Trait> GetTraits(string filePath)
-        //{
-        //    List<Trait> traitList = new List<Trait>();
-        //    using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filePath, true))
-        //    {
-        //        WorkbookPart workbookPart = doc.WorkbookPart;
-
-        //        var stringTablePart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-
-        //        WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(2); // This is the "Traits" tab;
-        //        SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-
-        //        ArrayList data = new ArrayList();
-
-        //        List<Row> rows = sheetData.Elements<Row>().ToList();
-
-        //        rows.RemoveAt(0);
-
-        //        string category = "";
-
-        //        foreach (Row r in rows)
-        //        {
-        //            Trait relevantTrait = new Trait();
-        //            List<string> cellValues = new List<string>();
-        //            foreach (Cell c in r.Elements<Cell>())
-        //            {
-        //                if (c.InnerText != "")
-        //                {
-        //                    if (c.DataType == null)
-        //                    {
-        //                        cellValues.Add(c.InnerText);
-        //                    }
-        //                    else
-        //                    {
-        //                        cellValues.Add(stringTablePart.SharedStringTable.ElementAt(int.Parse(c.InnerText)).InnerText);
-        //                    }
-        //                }
-        //            }
-        //            if (cellValues.Count == 1)
-        //            {
-        //                category = cellValues.ElementAt(0);
-        //            }
-        //            else if (cellValues.Count > 1)
-        //            {
-        //                relevantTrait.category = category;
-        //                relevantTrait.traitName = cellValues.ElementAt(0);
-        //                relevantTrait.costInD = cellValues.ElementAt(1);
-        //                relevantTrait.description = cellValues.ElementAt(2);
-        //                traitList.Add(relevantTrait);
-        //            }
-        //        }
-        //    }
-        //    return traitList;
-        //}
     }
 }

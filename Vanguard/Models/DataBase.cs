@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Vanguard.Models
 {
-    class DataBase
+    public class DataBase
     {
-        public List<WeaponModel> WeaponsDB { get; }
-        public List<ArmorModel> ArmorDB { get; }
+        public string DbVersion { get; set; }
+        public List<WeaponModel> WeaponsDB { get; set; }
+        public List<ArmorModel> ArmorDB { get; set; }
     }
 }
