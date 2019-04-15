@@ -29,73 +29,71 @@
         private void InitializeComponent()
         {
             this.MenuPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.CreateCharacterBtn = new System.Windows.Forms.Button();
+            this.SavedCharacterListBtn = new System.Windows.Forms.Button();
+            this.creatorControlForm1 = new Vanguard.Forms.CreatorControlForm();
+            this.savedCharactersControlForm1 = new Vanguard.Forms.SavedCharactersControlForm();
             this.MenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
-            this.MenuPanel.Controls.Add(this.button4);
-            this.MenuPanel.Controls.Add(this.button1);
-            this.MenuPanel.Controls.Add(this.button3);
-            this.MenuPanel.Controls.Add(this.button2);
+            this.MenuPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MenuPanel.Controls.Add(this.CreateCharacterBtn);
+            this.MenuPanel.Controls.Add(this.SavedCharacterListBtn);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(200, 674);
             this.MenuPanel.TabIndex = 0;
             // 
-            // button1
+            // CreateCharacterBtn
             // 
-            this.button1.Location = new System.Drawing.Point(12, 212);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CreateCharacterBtn.Location = new System.Drawing.Point(12, 212);
+            this.CreateCharacterBtn.Name = "CreateCharacterBtn";
+            this.CreateCharacterBtn.Size = new System.Drawing.Size(165, 23);
+            this.CreateCharacterBtn.TabIndex = 0;
+            this.CreateCharacterBtn.Text = "Create New Character";
+            this.CreateCharacterBtn.UseVisualStyleBackColor = true;
+            this.CreateCharacterBtn.Click += new System.EventHandler(this.CreateCharacterBtn_Click);
             // 
-            // button2
+            // SavedCharacterListBtn
             // 
-            this.button2.Location = new System.Drawing.Point(12, 283);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SavedCharacterListBtn.Location = new System.Drawing.Point(12, 283);
+            this.SavedCharacterListBtn.Name = "SavedCharacterListBtn";
+            this.SavedCharacterListBtn.Size = new System.Drawing.Size(165, 23);
+            this.SavedCharacterListBtn.TabIndex = 1;
+            this.SavedCharacterListBtn.Text = "Saved Character List";
+            this.SavedCharacterListBtn.UseVisualStyleBackColor = true;
+            this.SavedCharacterListBtn.Click += new System.EventHandler(this.SavedCharacterListBtn_Click);
             // 
-            // button3
+            // creatorControlForm1
             // 
-            this.button3.Location = new System.Drawing.Point(12, 344);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.creatorControlForm1.Location = new System.Drawing.Point(284, 62);
+            this.creatorControlForm1.Name = "creatorControlForm1";
+            this.creatorControlForm1.Size = new System.Drawing.Size(578, 221);
+            this.creatorControlForm1.TabIndex = 1;
             // 
-            // button4
+            // savedCharactersControlForm1
             // 
-            this.button4.Location = new System.Drawing.Point(12, 405);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.savedCharactersControlForm1.Location = new System.Drawing.Point(313, 341);
+            this.savedCharactersControlForm1.Name = "savedCharactersControlForm1";
+            this.savedCharactersControlForm1.Size = new System.Drawing.Size(681, 205);
+            this.savedCharactersControlForm1.TabIndex = 2;
             // 
             // VanguardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 674);
+            this.Controls.Add(this.savedCharactersControlForm1);
+            this.Controls.Add(this.creatorControlForm1);
             this.Controls.Add(this.MenuPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "VanguardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VanguardForm";
+            this.Load += new System.EventHandler(this.VanguardForm_Load);
             this.MenuPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -104,9 +102,9 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button CreateCharacterBtn;
+        private System.Windows.Forms.Button SavedCharacterListBtn;
+        private CreatorControlForm creatorControlForm1;
+        private SavedCharactersControlForm savedCharactersControlForm1;
     }
 }

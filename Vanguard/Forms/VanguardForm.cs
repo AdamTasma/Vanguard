@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vanguard.Models;
 
@@ -39,19 +33,27 @@ namespace Vanguard.Forms
             }
             else
             {
-                MessageBox.Show("Database import successful.");
+                //MessageBox.Show("Database import successful.");
             }
             return data;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void VanguardForm_Load(object sender, EventArgs e)
         {
-
+            creatorControlForm1.Hide();
+            savedCharactersControlForm1.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void CreateCharacterBtn_Click(object sender, EventArgs e)
         {
+            creatorControlForm1.Show();
+            savedCharactersControlForm1.Hide();
+        }
 
+        private void SavedCharacterListBtn_Click(object sender, EventArgs e)
+        {
+            savedCharactersControlForm1.Show();
+            creatorControlForm1.Hide();
         }
     }
 }

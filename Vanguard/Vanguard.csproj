@@ -66,11 +66,23 @@
   <ItemGroup>
     <Compile Include="DataImport\Excel.cs" />
     <Compile Include="DataImport\LoadExcelFile.cs" />
+    <Compile Include="Forms\CreatorControlForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CreatorControlForm.Designer.cs">
+      <DependentUpon>CreatorControlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SavedCharactersControlForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SavedCharactersControlForm.Designer.cs">
+      <DependentUpon>SavedCharactersControlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Vanguard.cs">
       <SubType>Form</SubType>
@@ -94,8 +106,14 @@
     <Compile Include="Models\WeaponModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CreatorControlForm.resx">
+      <DependentUpon>CreatorControlForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SavedCharactersControlForm.resx">
+      <DependentUpon>SavedCharactersControlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vanguard.resx">
       <DependentUpon>Vanguard.cs</DependentUpon>
