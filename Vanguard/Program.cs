@@ -13,7 +13,7 @@ namespace Vanguard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.VanguardForm());
+            Application.Run(new FrontEnd.AppMain());
         }
     }
 }
