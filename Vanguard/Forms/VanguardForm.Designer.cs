@@ -31,8 +31,8 @@
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.CreateCharacterBtn = new System.Windows.Forms.Button();
             this.SavedCharacterListBtn = new System.Windows.Forms.Button();
-            this.creatorControlForm1 = new Vanguard.Forms.CreatorControlForm();
-            this.savedCharactersControlForm1 = new Vanguard.Forms.SavedCharactersControlForm();
+            this.creatorControlForm1 = new CreatorControlForm();
+            this.savedCharactersControlForm1 = new SavedCharactersControlForm();
             this.MenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
