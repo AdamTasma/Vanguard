@@ -108,11 +108,11 @@
     <Compile Include="FrontEnd\CharacterCreationUC.Designer.cs">
       <DependentUpon>CharacterCreationUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrontEnd\SavedCharactersCF.cs">
+    <Compile Include="FrontEnd\SavedCharactersUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrontEnd\SavedCharactersCF.Designer.cs">
-      <DependentUpon>SavedCharactersCF.cs</DependentUpon>
+    <Compile Include="FrontEnd\SavedCharactersUC.Designer.cs">
+      <DependentUpon>SavedCharactersUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ArmorModel.cs" />
     <Compile Include="Models\CardModel.cs" />
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="FrontEnd\CharacterCreationUC.resx">
       <DependentUpon>CharacterCreationUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrontEnd\SavedCharactersCF.resx">
-      <DependentUpon>SavedCharactersCF.cs</DependentUpon>
+    <EmbeddedResource Include="FrontEnd\SavedCharactersUC.resx">
+      <DependentUpon>SavedCharactersUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

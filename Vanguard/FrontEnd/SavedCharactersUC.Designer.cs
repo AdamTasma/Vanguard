@@ -1,6 +1,6 @@
 ﻿namespace Vanguard.FrontEnd
 {
-    partial class SavedCharactersCF
+    partial class SavedCharactersUC
     {
         /// <summary> 
         /// Required designer variable.

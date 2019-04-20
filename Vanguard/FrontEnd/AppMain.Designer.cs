@@ -29,23 +29,35 @@
         private void InitializeComponent()
         {
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.savedCharacterBtn = new System.Windows.Forms.Button();
             this.newCharacterBtn = new System.Windows.Forms.Button();
-            this.SavedCharacterBtn = new System.Windows.Forms.Button();
             this.characterCreationUC1 = new Vanguard.FrontEnd.CharacterCreationUC();
-            this.savedCharactersCF1 = new Vanguard.FrontEnd.SavedCharactersCF();
+            this.savedCharactersUC1 = new Vanguard.FrontEnd.SavedCharactersUC();
+            this.DbVersionLbl = new System.Windows.Forms.Label();
             this.MenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.MenuPanel.Controls.Add(this.SavedCharacterBtn);
+            this.MenuPanel.Controls.Add(this.DbVersionLbl);
+            this.MenuPanel.Controls.Add(this.savedCharacterBtn);
             this.MenuPanel.Controls.Add(this.newCharacterBtn);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(200, 450);
             this.MenuPanel.TabIndex = 0;
+            // 
+            // savedCharacterBtn
+            // 
+            this.savedCharacterBtn.Location = new System.Drawing.Point(43, 229);
+            this.savedCharacterBtn.Name = "savedCharacterBtn";
+            this.savedCharacterBtn.Size = new System.Drawing.Size(142, 23);
+            this.savedCharacterBtn.TabIndex = 1;
+            this.savedCharacterBtn.Text = "Saved Character List";
+            this.savedCharacterBtn.UseVisualStyleBackColor = true;
+            this.savedCharacterBtn.Click += new System.EventHandler(this.savedCharacterBtn_Click);
             // 
             // newCharacterBtn
             // 
@@ -55,15 +67,7 @@
             this.newCharacterBtn.TabIndex = 0;
             this.newCharacterBtn.Text = "Create a New Characater";
             this.newCharacterBtn.UseVisualStyleBackColor = true;
-            // 
-            // SavedCharacterBtn
-            // 
-            this.SavedCharacterBtn.Location = new System.Drawing.Point(43, 229);
-            this.SavedCharacterBtn.Name = "SavedCharacterBtn";
-            this.SavedCharacterBtn.Size = new System.Drawing.Size(142, 23);
-            this.SavedCharacterBtn.TabIndex = 1;
-            this.SavedCharacterBtn.Text = "Saved Character List";
-            this.SavedCharacterBtn.UseVisualStyleBackColor = true;
+            this.newCharacterBtn.Click += new System.EventHandler(this.newCharacterBtn_Click);
             // 
             // characterCreationUC1
             // 
@@ -72,24 +76,35 @@
             this.characterCreationUC1.Size = new System.Drawing.Size(581, 136);
             this.characterCreationUC1.TabIndex = 1;
             // 
-            // savedCharactersCF1
+            // savedCharactersUC1
             // 
-            this.savedCharactersCF1.Location = new System.Drawing.Point(207, 189);
-            this.savedCharactersCF1.Name = "savedCharactersCF1";
-            this.savedCharactersCF1.Size = new System.Drawing.Size(564, 261);
-            this.savedCharactersCF1.TabIndex = 2;
+            this.savedCharactersUC1.Location = new System.Drawing.Point(207, 189);
+            this.savedCharactersUC1.Name = "savedCharactersUC1";
+            this.savedCharactersUC1.Size = new System.Drawing.Size(564, 261);
+            this.savedCharactersUC1.TabIndex = 2;
+            // 
+            // DbVersionLbl
+            // 
+            this.DbVersionLbl.AutoSize = true;
+            this.DbVersionLbl.Location = new System.Drawing.Point(4, 434);
+            this.DbVersionLbl.Name = "DbVersionLbl";
+            this.DbVersionLbl.Size = new System.Drawing.Size(59, 13);
+            this.DbVersionLbl.TabIndex = 2;
+            this.DbVersionLbl.Text = "DbVersion:";
             // 
             // AppMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.savedCharactersCF1);
+            this.Controls.Add(this.savedCharactersUC1);
             this.Controls.Add(this.characterCreationUC1);
             this.Controls.Add(this.MenuPanel);
             this.Name = "AppMain";
             this.Text = "AppMain";
+            this.Load += new System.EventHandler(this.AppMain_Load);
             this.MenuPanel.ResumeLayout(false);
+            this.MenuPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -97,9 +112,10 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Button SavedCharacterBtn;
+        private System.Windows.Forms.Button savedCharacterBtn;
         private System.Windows.Forms.Button newCharacterBtn;
         private CharacterCreationUC characterCreationUC1;
-        private SavedCharactersCF savedCharactersCF1;
+        private SavedCharactersUC savedCharactersUC1;
+        private System.Windows.Forms.Label DbVersionLbl;
     }
 }

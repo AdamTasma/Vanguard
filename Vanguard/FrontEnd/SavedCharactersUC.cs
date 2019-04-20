@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vanguard.FrontEnd
 {
-    public partial class SavedCharactersCF : UserControl
+    public partial class SavedCharactersUC : UserControl
     {
-        public SavedCharactersCF()
+        public SavedCharactersUC()
         {
             InitializeComponent();
         }
