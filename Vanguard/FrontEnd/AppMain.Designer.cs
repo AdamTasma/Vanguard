@@ -29,25 +29,37 @@
         private void InitializeComponent()
         {
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.DbVersionLbl = new System.Windows.Forms.Label();
             this.savedCharacterBtn = new System.Windows.Forms.Button();
             this.newCharacterBtn = new System.Windows.Forms.Button();
-            this.characterCreationUC1 = new Vanguard.FrontEnd.CharacterCreationUC();
             this.savedCharactersUC1 = new Vanguard.FrontEnd.SavedCharactersUC();
-            this.DbVersionLbl = new System.Windows.Forms.Label();
+            this.characterCreationUC1 = new Vanguard.FrontEnd.CharacterCreationUC();
             this.MenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
+            this.MenuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.MenuPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MenuPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.MenuPanel.Controls.Add(this.DbVersionLbl);
             this.MenuPanel.Controls.Add(this.savedCharacterBtn);
             this.MenuPanel.Controls.Add(this.newCharacterBtn);
-            this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(200, 450);
             this.MenuPanel.TabIndex = 0;
+            // 
+            // DbVersionLbl
+            // 
+            this.DbVersionLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DbVersionLbl.AutoSize = true;
+            this.DbVersionLbl.Location = new System.Drawing.Point(4, 434);
+            this.DbVersionLbl.Name = "DbVersionLbl";
+            this.DbVersionLbl.Size = new System.Drawing.Size(59, 13);
+            this.DbVersionLbl.TabIndex = 2;
+            this.DbVersionLbl.Text = "DbVersion:";
             // 
             // savedCharacterBtn
             // 
@@ -69,13 +81,6 @@
             this.newCharacterBtn.UseVisualStyleBackColor = true;
             this.newCharacterBtn.Click += new System.EventHandler(this.newCharacterBtn_Click);
             // 
-            // characterCreationUC1
-            // 
-            this.characterCreationUC1.Location = new System.Drawing.Point(207, 13);
-            this.characterCreationUC1.Name = "characterCreationUC1";
-            this.characterCreationUC1.Size = new System.Drawing.Size(581, 136);
-            this.characterCreationUC1.TabIndex = 1;
-            // 
             // savedCharactersUC1
             // 
             this.savedCharactersUC1.Location = new System.Drawing.Point(207, 189);
@@ -83,14 +88,12 @@
             this.savedCharactersUC1.Size = new System.Drawing.Size(564, 261);
             this.savedCharactersUC1.TabIndex = 2;
             // 
-            // DbVersionLbl
+            // characterCreationUC1
             // 
-            this.DbVersionLbl.AutoSize = true;
-            this.DbVersionLbl.Location = new System.Drawing.Point(4, 434);
-            this.DbVersionLbl.Name = "DbVersionLbl";
-            this.DbVersionLbl.Size = new System.Drawing.Size(59, 13);
-            this.DbVersionLbl.TabIndex = 2;
-            this.DbVersionLbl.Text = "DbVersion:";
+            this.characterCreationUC1.Location = new System.Drawing.Point(207, 13);
+            this.characterCreationUC1.Name = "characterCreationUC1";
+            this.characterCreationUC1.Size = new System.Drawing.Size(581, 136);
+            this.characterCreationUC1.TabIndex = 1;
             // 
             // AppMain
             // 
