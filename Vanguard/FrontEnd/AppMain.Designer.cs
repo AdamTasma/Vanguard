@@ -90,6 +90,9 @@
             // 
             // characterCreationUC1
             // 
+            this.characterCreationUC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.characterCreationUC1.Location = new System.Drawing.Point(207, 13);
             this.characterCreationUC1.Name = "characterCreationUC1";
             this.characterCreationUC1.Size = new System.Drawing.Size(581, 136);
